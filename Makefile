@@ -1,6 +1,6 @@
 NOMAN=	
 
-SCRIPT=	cargo-generate-checksum.pl
+SCRIPT=	cargo-generate-vendor.pl
 
 BINDIR?=	/usr/local/bin
 MANDIR?=	/usr/local/man/man
