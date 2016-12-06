@@ -71,7 +71,7 @@ sub generate_checksum_files
 	find({ wanted =>
 	    sub {
 		return if ! -f;
-		return if m|/.gitattributes$|o;
+		return if m|/\.gitattributes$|o;
 	        $files{$_} = sha256_file_hex($_);
 	    }, follow => 0, no_chdir => 1, }, '.');
 
