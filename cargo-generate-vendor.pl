@@ -107,7 +107,7 @@ pledge('rpath')
 
 # compute checksums
 my %metadata;
-$metadata{'archive'} = sha256_file_hex($archive);
+$metadata{'package'} = sha256_file_hex($archive);
 $metadata{'files'}   = generate_checksum_files();
 
 # write to checksum
