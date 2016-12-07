@@ -70,8 +70,17 @@ sub generate_checksum_files
 
 	find({ wanted =>
 	    sub {
+	        # remove ./ at begining
+		s|^\./||;
+		# skip .cargo* files (and prune)
+		if (m|^.cargo|o) {
+			$File::Find::prune = 1;
+			return;
+		}
+		# skip any no file
 		return if ! -f;
 		return if m|/\.gitattributes$|o;
+
 	        $files{$_} = sha256_file_hex($_);
 	    }, follow => 0, no_chdir => 1, }, '.');
 
